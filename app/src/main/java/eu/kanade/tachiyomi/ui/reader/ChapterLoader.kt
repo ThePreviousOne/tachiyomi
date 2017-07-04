@@ -54,8 +54,8 @@ class ChapterLoader(
                 })
     }
 
-    fun loadChapter(chapter: ReaderChapter) = Observable.just(chapter)
-            .flatMap {
+    fun loadChapter(chapter: ReaderChapter): Observable<ReaderChapter> =
+            Observable.just(chapter).flatMap {
                 if (chapter.pages == null)
                     retrievePageList(chapter)
                 else

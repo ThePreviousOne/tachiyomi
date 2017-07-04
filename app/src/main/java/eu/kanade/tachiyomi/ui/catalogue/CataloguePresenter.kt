@@ -150,7 +150,7 @@ open class CataloguePresenter(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeReplay({ view, pair ->
                     view.onAddPage(pair.first, pair.second)
-                }, { view, error ->
+                }, { _, error ->
                     Timber.e(error)
                 })
 
@@ -166,7 +166,7 @@ open class CataloguePresenter(
 
         pageSubscription?.let { remove(it) }
         pageSubscription = Observable.defer { pager.requestNext() }
-                .subscribeFirst({ view, page ->
+                .subscribeFirst({ _, _ ->
                     // Nothing to do when onNext is emitted.
                 }, CatalogueController::onAddPageError)
     }

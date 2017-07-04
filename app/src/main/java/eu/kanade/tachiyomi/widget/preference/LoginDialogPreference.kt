@@ -38,7 +38,7 @@ abstract class LoginDialogPreference(bundle: Bundle? = null) : DialogController(
 
     fun onViewCreated(view: View, savedState: Bundle?) {
         v = view.apply {
-            show_password.setOnCheckedChangeListener { v, isChecked ->
+            show_password.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked)
                     password.transformationMethod = null
                 else

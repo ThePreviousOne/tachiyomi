@@ -12,6 +12,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
 import rx.Observable
+import timber.log.Timber
 import uy.kohesive.injekt.injectLazy
 import java.net.URI
 import java.net.URISyntaxException
@@ -232,6 +233,7 @@ abstract class HttpSource : CatalogueSource {
      * @param chapter the chapter whose page list has to be fetched.
      */
     override fun fetchPageList(chapter: SChapter): Observable<List<Page>> {
+        Timber.w("0")
         return client.newCall(pageListRequest(chapter))
                 .asObservableSuccess()
                 .map { response ->
@@ -246,6 +248,7 @@ abstract class HttpSource : CatalogueSource {
      * @param chapter the chapter whose page list has to be fetched.
      */
     open protected fun pageListRequest(chapter: SChapter): Request {
+        Timber.w("1")
         return GET(baseUrl + chapter.url, headers)
     }
 

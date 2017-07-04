@@ -10,10 +10,10 @@ import eu.kanade.tachiyomi.R
 import eu.kanade.tachiyomi.source.online.HttpSource
 import eu.kanade.tachiyomi.source.online.YamlHttpSource
 import eu.kanade.tachiyomi.source.online.english.*
-import eu.kanade.tachiyomi.source.online.german.WieManga
-import eu.kanade.tachiyomi.source.online.russian.Mangachan
-import eu.kanade.tachiyomi.source.online.russian.Mintmanga
-import eu.kanade.tachiyomi.source.online.russian.Readmanga
+import eu.kanade.tachiyomi.source.online.english.dynasty.*
+import eu.kanade.tachiyomi.source.online.german.*
+import eu.kanade.tachiyomi.source.online.russian.*
+import eu.kanade.tachiyomi.source.online.R18.*
 import eu.kanade.tachiyomi.util.hasPermission
 import org.yaml.snakeyaml.Yaml
 import timber.log.Timber
@@ -58,7 +58,17 @@ open class SourceManager(private val context: Context) {
             Mangachan(),
             Readmangatoday(),
             Mangasee(),
-            WieManga()
+            WieManga(),
+            DynastyIssues(),
+            DynastySeries(),
+            DynastyDoujins(),
+            DynastyAnthologies(),
+            DH(),
+            DHA(),
+            LHM(),
+            RIH(),
+            MH(),
+            HB()
     )
 
     private fun createYamlSources(): List<Source> {
